@@ -1,3 +1,4 @@
+[#ftl]
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -8,5 +9,9 @@
 </head>
 <body>
     <h1>Tady bude můj blog…</h1>
+    [#list listOfPosts as post]
+    <a href="/detail/${post.id}">
+        <div>${post.title}</div>
+    [/#list]
 </body>
 </html>
