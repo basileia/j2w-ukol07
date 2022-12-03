@@ -1,7 +1,7 @@
 [#ftl]
 
 [@c.page]
-    [#list listOfPosts as post]
+    [#list listOfPosts.content as post]
     [#if post.published?exists]
         [#if .now > post.published]
             <div class="card">
