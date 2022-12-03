@@ -1,17 +1,16 @@
 [#ftl]
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Můj blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
-</head>
-<body>
-    <h1>Tady bude můj blog…</h1>
+
+[@c.page]
     [#list listOfPosts as post]
-    <a href="/detail/${post.id}">
-        <div>${post.title}</div>
+    [#if post.published?exists]
+        [#if .now > post.published]
+            <div class="card">
+                <a href="/detail/${post.slug}">
+                   <div>${post.title}</div>
+                   </a>
+                   <div>${post.perex?no_esc}</div>
+            </div>
+        [/#if]
+    [/#if]
     [/#list]
-</body>
-</html>
+[/@c.page]

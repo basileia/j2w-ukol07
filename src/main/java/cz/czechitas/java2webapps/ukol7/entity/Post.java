@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class Post {
@@ -29,7 +29,7 @@ public class Post {
     @NotBlank
     private String body;
 
-    private LocalDate published;
+    private Date published;
 
     public Long getId() {
         return id;
@@ -79,11 +79,11 @@ public class Post {
         this.body = body;
     }
 
-    public LocalDate getPublished() {
+    public Date getPublished() {
         return published;
     }
 
-    public void setPublished(LocalDate published) {
+    public void setPublished(Date published) {
         this.published = published;
     }
 }
