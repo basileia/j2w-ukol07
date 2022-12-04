@@ -9,9 +9,6 @@
             <div>${post.perex?no_esc}</div>
             <div>${post.body?no_esc}</div>
         </div>
-
     </div>
-
     [@c.back/]
-
 [/@c.page]

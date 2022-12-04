@@ -27,6 +27,4 @@ public class PostController {
         return new ModelAndView("detail")
                 .addObject("post", service.singlePost(slug));
     }
-
-
 }
