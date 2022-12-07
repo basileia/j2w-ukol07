@@ -4,6 +4,7 @@ import cz.czechitas.java2webapps.ukol7.entity.Post;
 import cz.czechitas.java2webapps.ukol7.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 
@@ -21,10 +22,10 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public Page<Post> list(Pageable pageable) {
-
+    public Page<Post> list() {
+        Pageable findFirst20Posts = PageRequest.of(0, 20);
         Date date = java.sql.Date.valueOf(LocalDate.now());
-        return postRepository.findPostByPublishedBeforeOrderByPublishedDesc(date, pageable);
+        return postRepository.findPostByPublishedBeforeOrderByPublishedDesc(date, findFirst20Posts);
     }
 
     public Post singlePost(String slug) {

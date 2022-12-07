@@ -1,7 +1,6 @@
 package cz.czechitas.java2webapps.ukol7.controller;
 
 import cz.czechitas.java2webapps.ukol7.service.PostService;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,9 +16,9 @@ public class PostController {
     }
 
     @GetMapping("/")
-    public ModelAndView listOfPosts(Pageable pageable) {
+    public ModelAndView listOfPosts() {
         return new ModelAndView("index")
-                .addObject("listOfPosts", service.list(pageable));
+                .addObject("listOfPosts", service.list());
     }
 
     @GetMapping("detail/{slug}")
