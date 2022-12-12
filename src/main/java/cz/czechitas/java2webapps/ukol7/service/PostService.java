@@ -8,8 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Pageable;
 
-import java.time.LocalDate;
-import java.sql.Date;
+import java.util.Date;
 
 
 @Service
@@ -24,7 +23,7 @@ public class PostService {
 
     public Page<Post> list() {
         Pageable findFirst20Posts = PageRequest.of(0, 20);
-        Date date = java.sql.Date.valueOf(LocalDate.now());
+        Date date = new Date();
         return postRepository.findPostByPublishedBeforeOrderByPublishedDesc(date, findFirst20Posts);
     }
 
